@@ -17,9 +17,8 @@
 
 %section.post-gallery
   %aside.post-container
-
-- page_articles.each_with_index do |article, i|
-  %h2
-  = link_to article.title, article
-  %span
-  = article.date.strftime('%b %e')
+  - page_articles.each_with_index do |article, i|
+    %h2.post-title
+    = link_to article.title, article
+    %span
+    = article.date.strftime('%b %e')
