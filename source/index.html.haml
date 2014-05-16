@@ -1,0 +1,25 @@
+%section.masthead
+  %h1.header The BRAT Blog
+  %h2.subhead About the Blog
+  %img(src='/images/down-arrow.png')
+
+%nav.navbar
+  %div.category-nav-container
+    %a.navbar-link(href="#") Articles
+    %a.navbar-link(href="#") Methods
+  %div.icon-nav-container
+    %a.navbar-link(href="#")
+      %img(src='/images/email-icon.png')
+    %a.navbar-link(href="https://twitter.com/AhaMethod" target="blank")
+      %img(src='/images/twitter-icon.png')
+    %a.navbar-link(href="#")
+      %img(src='/images/feed-icon.png')
+
+%section.post-gallery
+  %aside.post-container
+
+- page_articles.each_with_index do |article, i|
+  %h2
+  = link_to article.title, article
+  %span
+  = article.date.strftime('%b %e')

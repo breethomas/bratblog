@@ -1,18 +1,16 @@
-###
-# Blog settings
-###
-
 # Time.zone = "UTC"
+
+set :haml, { :ugly => true, :format => :html5 }
 
 activate :blog do |blog|
   # This will add a prefix to all links, template references and source paths
   # blog.prefix = "blog"
 
-  # blog.permalink = "{year}/{month}/{day}/{title}.html"
+  blog.permalink = "{title}.html"
   # Matcher for blog source files
-  # blog.sources = "{year}-{month}-{day}-{title}.html"
+  blog.sources = "posts/{year}-{month}-{day}-{title}.html"
   # blog.taglink = "tags/{tag}.html"
-  # blog.layout = "layout"
+  blog.layout = "post_layout"
   # blog.summary_separator = /(READMORE)/
   # blog.summary_length = 250
   # blog.year_link = "{year}.html"
@@ -31,6 +29,8 @@ end
 
 page "/feed.xml", layout: false
 
+activate :directory_indexes
+
 ###
 # Compass
 ###
@@ -47,7 +47,7 @@ page "/feed.xml", layout: false
 # Per-page layout changes:
 #
 # With no layout
-# page "/path/to/file.html", layout: false
+page "/source/styleguide.html.haml", layout: false
 #
 # With alternative layout
 # page "/path/to/file.html", layout: :otherlayout
@@ -68,8 +68,7 @@ page "/feed.xml", layout: false
 # Automatic image dimensions on image_tag helper
 # activate :automatic_image_sizes
 
-# Reload the browser automatically whenever files change
-# activate :livereload
+activate :livereload
 
 # Methods defined in the helpers block are available in templates
 # helpers do
